@@ -1,1 +1,22 @@
-Este proyecto es una prueba
+A) Descripción del problema y dinámica del juego
+
+Se desea implementar un juego de rol llamado Napakalaki, el cual se basa en el juego Munchkin, diseñado por Steve Jackson, 
+ajo el lema “Mata a los monstruos, roba el tesoro, apuñala a tus amigos”.
+
+En Napakalaki, al igual que en Munchkin, cada jugador comienza siendo un humano de nivel 1 y el reto consiste en alcanzar 
+el nivel 10 antes que los demás. Para ello, cada  jugador debe enfrentarse a monstruos y superar sus terribles maldiciones. 
+Como ayuda, contará con armas y armaduras (sus tesoros).
+
+En nuestro juego podrán participar 3 jugadores, identificados por un nombre único. Como ya hemos dicho, su nivel inicial 
+es 1 y gana la partida si llega a 10. El juego contiene dos barajas de cartas: tesoros y monstruos. Los Monstruos ya los
+conoces. En cuanto a los Tesoros, a continuación podrás ver cómo ayudarán a luchar contra los monstruos.
+
+                                            Tesoros
+
+Los tesoros poseen un nombre, valen una cierta cantidad de piezas de oro, y suponen al jugador que los tiene poder 
+enfrentarse a un monstruo con un cierto número de niveles adicionales a los que él tiene como jugador (lo que se denomina 
+un bonus). Hay varios tipos de tesoros: de mano (una o dos manos), casco, calzado, armadura y collar.
+
+Puede haber tesoros sin bonus, cuya utilidad es simplemente la de su valor en piezas de oro. Los tesoros que tienen 2 bonus 
+distintos (como en el ejemplo de la Figura 1), suman el valor más bajo si el jugador no dispone del tesoro “collar” y suman 
+el nivel más alto si se dispone del tesoro “collar”.
