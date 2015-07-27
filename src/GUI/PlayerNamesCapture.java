@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Montse R.Zamorano
  */
 public class PlayerNamesCapture extends javax.swing.JDialog {
-    private ArrayList <String> names;
+    private ArrayList <String> names=new ArrayList();
     /**
      * @brief La aplicación finaliza si el usuario cierra esta ventana
      */
@@ -43,19 +43,34 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
         jLabel1.setText("Nombre del jugador 1:");
 
         name1.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
-        name1.setText("Jugador 1");
+        name1.setText("Escribe tu nombre");
+        name1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
         jLabel2.setText("Nombre del jugador 2:");
 
         name2.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
-        name2.setText("Jugador 2");
+        name2.setText("Escribe tu nombre");
+        name2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
         jLabel3.setText("Nombre del jugador 3:");
 
         name3.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
-        name3.setText("Jugador 3");
+        name3.setText("Escribe tu nombre");
+        name3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name3ActionPerformed(evt);
+            }
+        });
 
         playButton.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
         playButton.setText("¡A jugar!");
@@ -121,16 +136,16 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
 
     /**
      * @brief rellena el vector names con los nombres que se han escrito
-     * en la interfaz
+     * en la interfaz.
      * @param evt 
      */
     
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
-        if(name1 != null)
+        if(name1.getText() != "Escribe tu nombre")
             names.add(name1.getText());
-        if(name2 != null)
+        if(name2.getText() != "Escribe tu nombre")
             names.add(name2.getText());
-        if(name3 != null)
+        if(name3.getText() != "Escribe tu nombre")
             names.add(name3.getText());
         this.dispose();
     }//GEN-LAST:event_playButtonActionPerformed
@@ -144,12 +159,24 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
         System.exit(0);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
+    private void name2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name2ActionPerformed
+
+    private void name3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name3ActionPerformed
+
+    private void name1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name1ActionPerformed
+
     /**
      * @brief Muestra el cuadro de diálogo y se queda esperando mientras
      * el usuario interactúa con él. Cuando recupera el control, devuelve
      * los nombres que se encuentran en el atributo names.
      */
-    public ArrayList<String> getNames(){
+    public ArrayList <String> getNames(){
         this.setVisible(true);
         return names;
     }
