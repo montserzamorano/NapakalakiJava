@@ -34,7 +34,7 @@
                       <Component id="levels" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="163" max="32767" attributes="0"/>
+              <EmptySpace pref="176" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,7 +60,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Skia" size="15" style="0"/>
+          <Font name="Skia" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Niveles:"/>
       </Properties>
@@ -68,7 +68,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Skia" size="15" style="0"/>
+          <Font name="Skia" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Tesoros:"/>
       </Properties>
@@ -76,7 +76,7 @@
     <Component class="javax.swing.JLabel" name="levels">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Skia" size="15" style="0"/>
+          <Font name="Skia" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="levels"/>
       </Properties>
@@ -84,7 +84,7 @@
     <Component class="javax.swing.JLabel" name="treasures">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Skia" size="15" style="0"/>
+          <Font name="Skia" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="treasures"/>
       </Properties>

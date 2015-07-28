@@ -32,16 +32,16 @@ public class PrizeView extends javax.swing.JPanel {
 
         setToolTipText("");
 
-        jLabel1.setFont(new java.awt.Font("Skia", 0, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Skia", 0, 14)); // NOI18N
         jLabel1.setText("Niveles:");
 
-        jLabel2.setFont(new java.awt.Font("Skia", 0, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Skia", 0, 14)); // NOI18N
         jLabel2.setText("Tesoros:");
 
-        levels.setFont(new java.awt.Font("Skia", 0, 15)); // NOI18N
+        levels.setFont(new java.awt.Font("Skia", 0, 14)); // NOI18N
         levels.setText("levels");
 
-        treasures.setFont(new java.awt.Font("Skia", 0, 15)); // NOI18N
+        treasures.setFont(new java.awt.Font("Skia", 0, 14)); // NOI18N
         treasures.setText("treasures");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -60,7 +60,7 @@ public class PrizeView extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(levels)))
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
