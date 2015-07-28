@@ -18,8 +18,8 @@ public class Main {
         
         names = namesCapture.getNames();
         Dice.createInstance(napakalakiView);
-        napakalakiView.setNapakalaki(napakalakiModel);
         napakalakiModel.initGame(names);
+        napakalakiView.setNapakalaki(napakalakiModel);
         napakalakiView.showView();
     }
 }
