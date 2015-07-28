@@ -43,7 +43,6 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
         jLabel1.setText("Nombre del jugador 1:");
 
         name1.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
-        name1.setText("Escribe tu nombre");
         name1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name1ActionPerformed(evt);
@@ -54,7 +53,6 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
         jLabel2.setText("Nombre del jugador 2:");
 
         name2.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
-        name2.setText("Escribe tu nombre");
         name2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name2ActionPerformed(evt);
@@ -65,7 +63,6 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
         jLabel3.setText("Nombre del jugador 3:");
 
         name3.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
-        name3.setText("Escribe tu nombre");
         name3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name3ActionPerformed(evt);
@@ -141,11 +138,13 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
      */
     
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
-        if(name1.getText() != "Escribe tu nombre")
+        //el método trim capta el texto sin espacios. Si comparamos directamente
+        //dos cadenas de string, no funciona
+        if(!name1.getText().trim().isEmpty())
             names.add(name1.getText());
-        if(name2.getText() != "Escribe tu nombre")
+        if(!name2.getText().trim().isEmpty())
             names.add(name2.getText());
-        if(name3.getText() != "Escribe tu nombre")
+        if(!name3.getText().trim().isEmpty())
             names.add(name3.getText());
         this.dispose();
     }//GEN-LAST:event_playButtonActionPerformed

@@ -16,7 +16,6 @@ public class Player {
     private static final int MAXHIDDENTREASURES = 4; //Constante
     private ArrayList<Treasure> visibleTreasures = new ArrayList();
     private ArrayList<Treasure> hiddenTreasures = new ArrayList();
-    //private BadConsequence pendingBadConsequence = new BadConsequence();
     private BadConsequence pendingBadConsequence;
     
 

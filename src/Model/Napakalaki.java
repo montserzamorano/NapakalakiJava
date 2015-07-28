@@ -100,6 +100,13 @@ public class Napakalaki {
     public boolean makeTreasureVisible(Treasure t){
         return currentPlayer.makeTreasureVisible(t);
     }
+    public boolean makeTreasuresVisible(ArrayList <Treasure> ts){
+        boolean b=false;
+        for(Treasure t: ts){
+            b=currentPlayer.makeTreasureVisible(t);
+        }
+        return b;
+    }
     public boolean nextTurn(){
         boolean stateOK;
         stateOK = nextTurnAllowed();

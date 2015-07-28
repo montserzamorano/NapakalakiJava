@@ -1,4 +1,3 @@
-
 package Model;
 
 import java.awt.event.ActionEvent;
@@ -61,8 +60,10 @@ public class Dice extends JDialog {
   }
   public int nextNumber (String message1, String message2) {
     jB_OK.setVisible(false);
-    jL_message1.setText(message1);
-    jL_message2.setText(message2);
+    //jL_message1.setText(message1);
+    //jL_message2.setText(message2);
+    jL_message1.setText("Tira el dado!!!");
+    jL_message2.setText("");
     pack();
     timerDice.start();
     this.setVisible(true);

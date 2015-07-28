@@ -1,5 +1,6 @@
 package GUI;
 import Model.*;
+import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
@@ -9,6 +10,7 @@ import javax.swing.JPanel;
  */
 public class PlayerView extends javax.swing.JPanel {
     private Player playerModel=new Player();
+    private Napakalaki napakalakiModel;
     /**
      * Creates new form PlayerView
      */
@@ -38,6 +40,34 @@ public class PlayerView extends javax.swing.JPanel {
         fillTreasurePanel(hiddenTreasures, playerModel.getHiddenTreasures());
         repaint();
         revalidate();
+    }
+    
+    /**
+     * @brief llama al método setNapakalaki de la clase napakalakiView
+     */
+    public void setNapakalaki(Napakalaki n){
+        this.napakalakiModel = n;
+    }
+    
+    public void setEnabledmakeVisible(boolean b){
+        visibleButton.setEnabled(b);
+    }
+    
+    public void setEnabledbuyButton(boolean b){
+        buyButton.setEnabled(b);
+    }
+    /**
+     * @brief Método para obtener la lista de tesoros seleccionados
+     */
+    public ArrayList <Treasure> getSelectedTreasures(JPanel aPanel){
+        TreasureView tv;
+        ArrayList <Treasure> output = new ArrayList();
+        for(Component c : aPanel.getComponents()){
+            tv = (TreasureView) c;
+            if(tv.isSelected())
+                output.add(tv.getTreasure());
+        }
+        return output;
     }
 
     @SuppressWarnings("unchecked")
@@ -71,12 +101,27 @@ public class PlayerView extends javax.swing.JPanel {
 
         buyButton.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
         buyButton.setText("Comprar niveles");
+        buyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buyButtonActionPerformed(evt);
+            }
+        });
 
         visibleButton.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
         visibleButton.setText("Hacer tesoros visibles");
+        visibleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visibleButtonActionPerformed(evt);
+            }
+        });
 
         discardButton.setFont(new java.awt.Font("Skia", 0, 16)); // NOI18N
         discardButton.setText("Descartar tesoros");
+        discardButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -85,27 +130,24 @@ public class PlayerView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(4, 4, 4)
                 .addComponent(buyButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(visibleButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(168, 168, 168)
                 .addComponent(discardButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(name)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(hiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))
+                        .addComponent(visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(hiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(name)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(level)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(level)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,10 +159,10 @@ public class PlayerView extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(level))
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(hiddenTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(hiddenTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
                     .addComponent(visibleTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buyButton)
                     .addComponent(visibleButton)
@@ -128,6 +170,31 @@ public class PlayerView extends javax.swing.JPanel {
                 .addGap(14, 14, 14))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void visibleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visibleButtonActionPerformed
+        ArrayList <Treasure> selHidden = getSelectedTreasures(hiddenTreasures);
+        napakalakiModel.makeTreasuresVisible(selHidden);
+        setPlayer (napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_visibleButtonActionPerformed
+
+    private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
+        ArrayList <Treasure> selHidden = getSelectedTreasures(hiddenTreasures);
+        ArrayList <Treasure> selVisible = getSelectedTreasures(visibleTreasures);
+        playerModel.buyLevels(selVisible, selHidden);
+        setPlayer(napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_buyButtonActionPerformed
+
+    private void discardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardButtonActionPerformed
+        ArrayList <Treasure> selHidden = getSelectedTreasures(hiddenTreasures);
+        ArrayList <Treasure> selVisible = getSelectedTreasures(visibleTreasures);
+        for(Treasure t: selHidden){
+            playerModel.discardHiddenTreasure(t);
+        }
+        for(Treasure t1: selVisible){
+            playerModel.discardVisibleTreasure(t1);
+        }
+        setPlayer(napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_discardButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
